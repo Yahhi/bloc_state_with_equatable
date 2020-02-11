@@ -28,6 +28,7 @@ class _FormWithRadioPageState extends State<FormWithRadioPage> {
         Expanded(
           child: SingleChildScrollView(
             child: BlocBuilder<ScreenBloc, ScreenState>(
+              condition: _allEvents,
               builder: (context, state) {
                 print("rebuild list with ${state.selection}");
                 final String selected = state.selection;
@@ -58,5 +59,9 @@ class _FormWithRadioPageState extends State<FormWithRadioPage> {
 
   void _changeValueTo(String value) {
     BlocProvider.of<ScreenBloc>(context).add(SelectSubstanceEvent(value));
+  }
+
+  bool _allEvents(ScreenState previous, ScreenState current) {
+    return true;
   }
 }

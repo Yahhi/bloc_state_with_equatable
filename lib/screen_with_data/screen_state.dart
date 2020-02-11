@@ -6,9 +6,7 @@ abstract class ScreenState extends Equatable {
 
   ScreenState(this.stepsHighlighted, this.selection);
 
-  List<Object> get props => [
-        stepsHighlighted,
-      ];
+  List<Object> get props => [stepsHighlighted, selection];
 }
 
 class FirstPageState extends ScreenState {
